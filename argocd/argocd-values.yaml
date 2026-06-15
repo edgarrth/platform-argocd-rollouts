@@ -1,0 +1,42 @@
+global:
+  nodeSelector:
+    node: system
+configs:
+  cm:
+    timeout.reconciliation: 60s
+controller:
+  nodeSelector:
+    node: system
+  metrics:
+    enabled: false
+    serviceMonitor:
+      enabled: false
+      # -- Prometheus ServiceMonitor interval
+      interval: 60s
+server:
+  nodeSelector:
+    node: system
+  metrics:
+    enabled: false
+    serviceMonitor:
+      enabled: false
+      # -- Prometheus ServiceMonitor interval
+      interval: 60s
+repoServer:
+  nodeSelector:
+    node: system
+  metrics:
+    enabled: false
+    serviceMonitor:
+      enabled: false
+      # -- Prometheus ServiceMonitor interval
+      interval: 60s
+applicationSet:
+  nodeSelector:
+    node: system
+  metrics:
+    enabled: false
+    serviceMonitor:
+      enabled: false
+      # -- Prometheus ServiceMonitor interval
+      interval: 60s
