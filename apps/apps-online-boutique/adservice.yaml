@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: adservice
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+    course.platform/source-repo: http://localhost:3000/root/adservice.git
+spec:
+  project: online-boutique
+  source:
+    repoURL: http://gitea:3000/root/repo-infra.git
+    targetRevision: main
+    path: manifests
+    directory:
+      include: adservice.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
